@@ -23,4 +23,4 @@ This project is developed using an unknown off-brand AIDE. The configuration fil
 473450426
 
 ## Developer
-<img align="center" width="20" height="20" src="https://xfbrowser.fwh.is/xf.png"> [xuanfeng0316](https://xuanfeng0316.com)
+<img align="center" width="20" height="20" src="https://xfbrowser.fwh.is/xf.jpg"> [xuanfeng0316](https://xuanfeng0316.com)
