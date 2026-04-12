@@ -1,7 +1,14 @@
-# XFbrowser
+<p align="center">
+  <img width="264" height="264" alt="XFbrowser" src="https://xfbrowser.fwh.is/icon.png" />
+</p>
 
-## More Versions
-[XFbrowser-Desktop](https://github.com/ZhouyiStudio/XFBrowser-Desktop)
+# <p align="center">XFbrowser</p>
+
+## <p align="center">More Editions</p>
+
+<p align="center">
+  <a href="https://github.com/ZhouyiStudio/XFBrowser-Desktop">XFbrowser-Desktop</a>
+</p>
 
 ## Proxy Server Provider
 YaoZhouyi (https://github.com/YaoZhouyi)
@@ -15,5 +22,5 @@ This project is developed using an unknown off-brand AIDE. The configuration fil
 ## Official QQ Group
 473450426
 
-## Author's Website
-[xuanfeng0316.com](https://xuanfeng0316.com)
+## Developer
+<img align="center" width="20" height="20" src="https://xfbrowser.fwh.is/xf.png"> [xuanfeng0316](https://xuanfeng0316.com)
