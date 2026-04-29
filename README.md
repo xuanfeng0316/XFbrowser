@@ -10,7 +10,7 @@
   <a href="https://github.com/ZhouyiStudio/XFBrowser-Desktop">XFbrowser-Desktop</a>
 </p>
 
-## Proxy Server Provider
+## Project Collaborators
 YaoZhouyi (https://github.com/ZhouYiStudio)
 
 ## Note
