@@ -1,9 +1,26 @@
-## About This Version
+<p align="center">
+  <img width="264" height="264" alt="XFbrowser" src="https://xfbrowser.fwh.is/icon.png" />
+</p>
 
-**This is an early exploratory version for implementing download functionality.**
+# <p align="center">XFbrowser</p>
 
-- It has **no reference value** for learning or production use.
-- **Only for historical record.**
-- The code is rough, incomplete, and was written during the initial stage of adding download features.
+## <p align="center">More Editions</p>
 
-> If you are looking for a stable or meaningful version to study, please check later releases (e.g., 4.9.x). This tag exists purely to preserve development history.
+<p align="center">
+  <a href="https://github.com/ZhouyiStudio/XFBrowser-Desktop">XFbrowser-Desktop</a>
+</p>
+
+## Project Collaborators
+YaoZhouyi (https://github.com/ZhouYiStudio)
+
+## Note
+This project is developed using an unknown off-brand AIDE. The configuration files are basically useless and have no practical value, which may easily cause misunderstanding. Therefore, only the files under the `Project/app/` directory are recommended for use. The Gradle-related configuration files in this directory are artifacts of this off-brand AIDE and are not guaranteed to work properly!
+
+## Official Website
+[xfbrowser.fwh.is](https://xfbrowser.fwh.is)
+
+## Official QQ Group
+473450426
+
+## Developer
+<img align="center" width="20" height="20" src="https://xfbrowser.fwh.is/xf.jpg"> [xuanfeng0316](https://xuanfeng0316.com)

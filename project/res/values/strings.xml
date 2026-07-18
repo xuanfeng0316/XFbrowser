@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">XF浏览器</string>
+    <string name="go">前往</string>
+    <string name="back">←</string>
+    <string name="forward">→</string>
+    <string name="refresh">↻</string>
+    <string name="home">⌂</string>
+    <string name="source">源码</string>
+    <string name="input_hint">输入网址</string>
+</resources>

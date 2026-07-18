@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XuanFeng 新标签页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f5f7;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* 标题 */
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            color: #1a2b3c;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        /* 搜索栏 */
+        .search-container {
+            margin-bottom: 50px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1.2rem;
+            border: 2px solid #e0e4e9;
+            border-radius: 40px;
+            outline: none;
+            transition: all 0.2s;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .search-box:focus {
+            border-color: #4285f4;
+            box-shadow: 0 4px 16px rgba(66,133,244,0.2);
+        }
+
+        .search-box::placeholder {
+            color: #9aa3b2;
+            font-size: 1rem;
+        }
+
+        /* 搜索引擎提示 */
+        .engine-hint {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #6b7a8f;
+            margin-top: 8px;
+            padding-right: 10px;
+        }
+
+        /* 网站分类 */
+        .section-title {
+            font-size: 1.1rem;
+            color: #4a5a6e;
+            text-align: left;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            font-weight: 500;
+        }
+
+        /* 图标网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #1e293b;
+            transition: transform 0.2s;
+            padding: 12px 8px;
+            border-radius: 12px;
+        }
+
+        .grid-item:hover {
+            background: rgba(0,0,0,0.03);
+            transform: translateY(-3px);
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .icon-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .site-name {
+            font-size: 0.85rem;
+            color: #3d4e64;
+            max-width: 90px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* 没有图标时的纯色背景 */
+        .icon-bg-baidu { background: #4a6cf7; color: white; }
+        .icon-bg-google { background: #ea4335; color: white; }
+        .icon-bg-youtube { background: #ff0000; color: white; }
+        .icon-bg-github { background: #24292e; color: white; }
+        .icon-bg-bing { background: #008373; color: white; }
+        .icon-bg-duckduckgo { background: #de5833; color: white; }
+        .icon-bg-taobao { background: #ff6a00; color: white; }
+        .icon-bg-bilibili { background: #fb7299; color: white; }
+        .icon-bg-zhihu { background: #1772f6; color: white; }
+        .icon-bg-weibo { background: #e6162d; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 标题 -->
+        <h1>XuanFeng Browser</h1>
+
+        <!-- 搜索栏 - 跟随浏览器选择的搜索引擎 -->
+        <div class="search-container">
+            <form id="searchForm" method="GET" onsubmit="return handleSearch()">
+                <input type="text" id="searchInput" class="search-box" placeholder="搜索或输入网址" autofocus>
+                <div class="engine-hint" id="engineHint">正在使用 百度 搜索</div>
+            </form>
+        </div>
+
+        <!-- xuanfeng -->
+        <div class="section-title">xuanfeng0316相关</div>
+        <div class="grid">
+            
+            <a href="https://xuanfeng0316.com" class="grid-item">
+                <div class="icon icon-bg-baidu">com</div>
+                <span class="site-name">xuanfeng0316个人官网</span>
+            </a>
+            <!-- 淘宝 -->
+            <a href="https://xuanfeng.fwh.is" class="grid-item">
+                <div class="icon icon-bg-taobao">Studio</div>
+                <span class="site-name">xuanfeng Studio</span>
+            </a>
+            <!-- B站 -->
+            <a href="https://xfbrowser.fwh.is" class="grid-item">
+                <div class="icon icon-bg-bilibili">🌐</div>
+                <span class="site-name">XFbrowser</span>
+            </a>
+            <!-- 知乎 -->
+            <a href="https://3d3k.org" class="grid-item">
+                <div class="icon icon-bg-zhihu">3D3K</div>
+                <span class="site-name">Minecraft无政府服务器-3D3K</span>
+            </a>
+           
+        </div>
+        
+        <!-- 国内常用 -->
+        <div class="section-title">国内常用</div>
+        <div class="grid">
+            <!-- 百度 -->
+            <a href="https://www.baidu.com" class="grid-item">
+                <div class="icon icon-bg-baidu">百</div>
+                <span class="site-name">百度</span>
+            </a>
+            <!-- 淘宝 -->
+            <a href="https://www.taobao.com" class="grid-item">
+                <div class="icon icon-bg-taobao">淘</div>
+                <span class="site-name">淘宝</span>
+            </a>
+            <!-- B站 -->
+            <a href="https://www.bilibili.com" class="grid-item">
+                <div class="icon icon-bg-bilibili">B</div>
+                <span class="site-name">哔哩哔哩</span>
+            </a>
+            <!-- 知乎 -->
+            <a href="https://www.zhihu.com" class="grid-item">
+                <div class="icon icon-bg-zhihu">知</div>
+                <span class="site-name">知乎</span>
+            </a>
+            <!-- 微博 -->
+            <a href="https://weibo.com" class="grid-item">
+                <div class="icon icon-bg-weibo">微</div>
+                <span class="site-name">微博</span>
+            </a>
+            <!-- 腾讯网 -->
+            <a href="https://www.qq.com" class="grid-item">
+                <div class="icon">腾</div>
+                <span class="site-name">腾讯网</span>
+            </a>
+        </div>
+
+        <!-- 国外常用 -->
+        <div class="section-title">国外常用</div>
+        <div class="grid">
+            <!-- Google -->
+            <a href="https://www.google.com" class="grid-item">
+                <div class="icon icon-bg-google">G</div>
+                <span class="site-name">Google</span>
+            </a>
+            <!-- YouTube -->
+            <a href="https://www.youtube.com" class="grid-item">
+                <div class="icon icon-bg-youtube">YT</div>
+                <span class="site-name">YouTube</span>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com" class="grid-item">
+                <div class="icon icon-bg-github">GH</div>
+                <span class="site-name">GitHub</span>
+            </a>
+            <!-- 必应 -->
+            <a href="https://www.bing.com" class="grid-item">
+                <div class="icon icon-bg-bing">B</div>
+                <span class="site-name">Bing</span>
+            </a>
+            <!-- DuckDuckGo -->
+            <a href="https://duckduckgo.com" class="grid-item">
+                <div class="icon icon-bg-duckduckgo">D</div>
+                <span class="site-name">DuckDuckGo</span>
+            </a>
+            <!-- 维基百科 -->
+            <a href="https://www.wikipedia.org" class="grid-item">
+                <div class="icon">W</div>
+                <span class="site-name">Wikipedia</span>
+            </a>
+            <!-- Reddit -->
+            <a href="https://www.reddit.com" class="grid-item">
+                <div class="icon">R</div>
+                <span class="site-name">Reddit</span>
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com" class="grid-item">
+                <div class="icon">X</div>
+                <span class="site-name">Twitter</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 从浏览器设置获取当前搜索引擎
+        function getCurrentEngine() {
+            // 这里需要和你的浏览器通信
+            // 方法1：通过 URL 参数传递（推荐）
+            const urlParams = new URLSearchParams(window.location.search);
+            const engine = urlParams.get('engine');
+            
+            // 默认搜索引擎
+            const engines = {
+                'baidu': { name: '百度', url: 'https://www.baidu.com/s?wd=' },
+                'google': { name: 'Google', url: 'https://www.google.com/search?q=' },
+                'bing': { name: 'Bing', url: 'https://www.bing.com/search?q=' },
+                'duckduckgo': { name: 'DuckDuckGo', url: 'https://duckduckgo.com/?q=' },
+                'sogou': { name: '搜狗', url: 'https://www.sogou.com/web?query=' },
+                '360': { name: '360', url: 'https://www.so.com/s?q=' },
+                'ahmia': { name: 'Ahmia', url: 'https://ahmia.fi/search/?q=' }
+            };
+            
+            if (engine && engines[engine]) {
+                return engines[engine];
+            }
+            return engines['baidu']; // 默认百度
+        }
+
+        // 更新搜索引擎提示
+        function updateEngineHint() {
+            const engine = getCurrentEngine();
+            document.getElementById('engineHint').textContent = `正在使用 ${engine.name} 搜索`;
+        }
+
+        // 处理搜索
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return false;
+            
+            const engine = getCurrentEngine();
+            
+            // 判断是否是网址
+            if (isValidUrl(query)) {
+                let url = query;
+                if (!url.startsWith('http')) {
+                    url = 'http://' + url;
+                }
+                window.location.href = url;
+            } else {
+                // 搜索
+                window.location.href = engine.url + encodeURIComponent(query);
+            }
+            return false;
+        }
+
+        // 判断是否是有效网址
+        function isValidUrl(input) {
+            // 简单判断
+            if (input.startsWith('http://') || input.startsWith('https://')) return true;
+            if (input.includes('.') && !input.includes(' ')) {
+                const parts = input.split('.');
+                if (parts.length >= 2 && parts[parts.length - 1].length >= 2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // 初始化
+        window.onload = function() {
+            updateEngineHint();
+            
+            // 回车搜索
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+        };
+    </script>
+</body>
+</html>
